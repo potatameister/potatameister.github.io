@@ -1,38 +1,38 @@
 /* === potatameister styles === */
 
 :root {
-    --bg: #fafaf9;
+    --bg: #fafafa;
     --bg-card: #ffffff;
-    --bg-elevated: #f5f5f4;
-    --text: #1c1917;
-    --text-muted: #57534e;
-    --text-faint: #78716c;
-    --border: #e7e5e4;
-    --border-strong: #d6d3d1;
-    --accent: #0d9488;
-    --accent-soft: #ccfbf1;
-    --accent-text: #0f766e;
-    --code-bg: #f5f5f4;
-    --shadow: 0 1px 2px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.04);
+    --bg-elevated: #f4f4f4;
+    --text: #0a0a0a;
+    --text-muted: #525252;
+    --text-faint: #a3a3a3;
+    --border: #e5e5e5;
+    --border-strong: #d4d4d4;
+    --accent: #f59e0b;
+    --accent-soft: #fef3c7;
+    --accent-text: #b45309;
+    --code-bg: #f5f5f5;
+    --shadow: 0 1px 2px rgba(0,0,0,0.04), 0 2px 8px rgba(0,0,0,0.04);
     --shadow-hover: 0 2px 4px rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.08);
-    --radius: 10px;
-    --transition: 180ms ease;
+    --radius: 12px;
+    --transition: 200ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 [data-theme="dark"] {
-    --bg: #0c0a09;
-    --bg-card: #1c1917;
-    --bg-elevated: #292524;
-    --text: #fafaf9;
-    --text-muted: #a8a29e;
-    --text-faint: #78716c;
-    --border: #292524;
-    --border-strong: #44403c;
-    --accent: #2dd4bf;
-    --accent-soft: #134e4a;
-    --accent-text: #5eead4;
-    --code-bg: #1c1917;
-    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 4px 12px rgba(0,0,0,0.4);
+    --bg: #0a0a0a;
+    --bg-card: #171717;
+    --bg-elevated: #262626;
+    --text: #fafafa;
+    --text-muted: #a3a3a3;
+    --text-faint: #525252;
+    --border: #262626;
+    --border-strong: #404040;
+    --accent: #fbbf24;
+    --accent-soft: #422006;
+    --accent-text: #fcd34d;
+    --code-bg: #171717;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 2px 8px rgba(0,0,0,0.4);
     --shadow-hover: 0 2px 4px rgba(0,0,0,0.4), 0 8px 24px rgba(0,0,0,0.5);
 }
 
@@ -50,23 +50,33 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", system-ui, sans-serif;
     background: var(--bg);
     color: var(--text);
-    line-height: 1.6;
+    line-height: 1.65;
     min-height: 100vh;
     transition: background var(--transition), color var(--transition);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "ss01", "cv11";
 }
 
 a {
-    color: var(--accent);
+    color: var(--text);
     text-decoration: none;
-    transition: color var(--transition);
+    border-bottom: 1px dotted var(--border-strong);
+    transition: all var(--transition);
 }
 
 a:hover {
     color: var(--accent-text);
-    text-decoration: underline;
-    text-underline-offset: 3px;
+    border-bottom-color: var(--accent);
+    text-decoration: none;
+}
+
+.no-underline {
+    border-bottom: none;
+}
+
+.no-underline:hover {
+    border-bottom: none;
 }
 
 code {
@@ -80,7 +90,7 @@ code {
 
 /* === Layout === */
 .container {
-    max-width: 760px;
+    max-width: 680px;
     margin: 0 auto;
     padding: 0 24px;
 }
@@ -92,14 +102,15 @@ nav {
     position: sticky;
     top: 0;
     z-index: 100;
-    backdrop-filter: blur(8px);
-    background: color-mix(in srgb, var(--bg) 85%, transparent);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    background: color-mix(in srgb, var(--bg) 80%, transparent);
 }
 
 .nav-inner {
-    max-width: 760px;
+    max-width: 680px;
     margin: 0 auto;
-    padding: 16px 24px;
+    padding: 18px 24px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -110,17 +121,24 @@ nav {
     font-weight: 700;
     color: var(--text);
     font-size: 1.05rem;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.02em;
+    border-bottom: none;
 }
 
 .nav-brand:hover {
+    color: var(--accent-text);
+    border-bottom: none;
+}
+
+.nav-brand .dot {
     color: var(--accent);
-    text-decoration: none;
+    display: inline-block;
+    margin-left: 1px;
 }
 
 .nav-links {
     display: flex;
-    gap: 4px;
+    gap: 2px;
     align-items: center;
     list-style: none;
 }
@@ -128,41 +146,44 @@ nav {
 .nav-links a {
     color: var(--text-muted);
     padding: 6px 12px;
-    border-radius: 6px;
+    border-radius: 8px;
     font-size: 0.92rem;
+    border-bottom: none;
     transition: all var(--transition);
 }
 
 .nav-links a:hover {
     color: var(--text);
     background: var(--bg-elevated);
-    text-decoration: none;
+    border-bottom: none;
 }
 
 .nav-links a.active {
-    color: var(--accent);
+    color: var(--accent-text);
     background: var(--accent-soft);
 }
 
 /* Theme toggle */
 .theme-toggle {
-    background: var(--bg-elevated);
+    background: transparent;
     border: 1px solid var(--border);
-    color: var(--text);
-    width: 36px;
-    height: 36px;
+    color: var(--text-muted);
+    width: 34px;
+    height: 34px;
     border-radius: 8px;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 16px;
+    font-size: 14px;
     transition: all var(--transition);
+    margin-left: 4px;
 }
 
 .theme-toggle:hover {
     border-color: var(--border-strong);
-    background: var(--bg-card);
+    color: var(--text);
+    background: var(--bg-elevated);
 }
 
 .theme-toggle .sun { display: none; }
@@ -173,39 +194,40 @@ nav {
 
 /* === Main === */
 main {
-    padding: 60px 0 80px;
+    padding: 64px 0 80px;
 }
 
 h1 {
-    font-size: 2.2rem;
+    font-size: 2.4rem;
     font-weight: 700;
-    letter-spacing: -0.02em;
-    margin-bottom: 12px;
-    line-height: 1.2;
+    letter-spacing: -0.03em;
+    margin-bottom: 16px;
+    line-height: 1.15;
 }
 
 h2 {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     font-weight: 600;
     letter-spacing: -0.01em;
-    margin: 40px 0 16px;
+    margin: 48px 0 12px;
 }
 
 h3 {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     font-weight: 600;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
+    letter-spacing: -0.01em;
 }
 
 p {
-    margin-bottom: 16px;
+    margin-bottom: 14px;
     color: var(--text-muted);
 }
 
 .lead {
     font-size: 1.1rem;
     color: var(--text-muted);
-    margin-bottom: 24px;
+    margin-bottom: 8px;
 }
 
 .muted {
@@ -216,80 +238,103 @@ p {
 /* === Cards === */
 .card-grid {
     display: grid;
-    gap: 16px;
-    margin-top: 24px;
+    gap: 14px;
+    margin-top: 20px;
 }
 
 .card {
     background: var(--bg-card);
     border: 1px solid var(--border);
     border-radius: var(--radius);
-    padding: 20px 24px;
+    padding: 20px 22px;
     transition: all var(--transition);
     display: block;
     color: var(--text);
+    border-bottom: 1px solid var(--border);
+    position: relative;
 }
 
 .card:hover {
     border-color: var(--border-strong);
     box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
     text-decoration: none;
-    transform: translateY(-1px);
+    border-bottom-color: var(--border-strong);
 }
 
 .card h3 {
     color: var(--text);
     margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .card p {
     color: var(--text-muted);
     font-size: 0.95rem;
     margin: 0;
+    line-height: 1.55;
 }
 
 .card .tag {
     display: inline-block;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     color: var(--accent-text);
     background: var(--accent-soft);
     padding: 2px 8px;
     border-radius: 4px;
-    margin-bottom: 8px;
-    font-weight: 500;
+    margin-left: 8px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    vertical-align: middle;
 }
 
-/* === Footer === */
-footer {
-    border-top: 1px solid var(--border);
-    padding: 24px 0;
+.card .arrow {
+    position: absolute;
+    right: 22px;
+    top: 50%;
+    transform: translateY(-50%) translateX(-4px);
     color: var(--text-faint);
-    font-size: 0.85rem;
-    text-align: center;
+    transition: all var(--transition);
+    opacity: 0;
 }
 
-footer a {
-    color: var(--text-muted);
+.card:hover .arrow {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+    color: var(--accent);
 }
 
 /* === Lists === */
 .simple-list {
     list-style: none;
-    margin-top: 12px;
+    margin-top: 16px;
 }
 
 .simple-list li {
-    padding: 8px 0;
+    padding: 14px 0;
     border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
 }
 
 .simple-list li:last-child {
     border-bottom: none;
 }
 
-/* === Privacy content (special styles) === */
+.simple-list strong {
+    color: var(--text);
+    font-weight: 600;
+    min-width: 100px;
+    display: inline-block;
+}
+
+/* === Privacy content === */
 .privacy-content {
-    max-width: 720px;
+    max-width: 680px;
 }
 
 .privacy-content h1 {
@@ -298,14 +343,14 @@ footer a {
 
 .privacy-content .updated {
     color: var(--text-faint);
-    font-size: 0.9rem;
-    margin-bottom: 32px;
+    font-size: 0.88rem;
+    margin-bottom: 36px;
     display: block;
 }
 
 .privacy-content h2 {
-    margin-top: 32px;
-    margin-bottom: 12px;
+    margin-top: 36px;
+    margin-bottom: 10px;
     color: var(--text);
     font-size: 1.15rem;
 }
@@ -316,7 +361,7 @@ footer a {
 
 .privacy-content ul {
     color: var(--text-muted);
-    padding-left: 24px;
+    padding-left: 22px;
     margin-bottom: 16px;
 }
 
@@ -324,22 +369,37 @@ footer a {
     margin-bottom: 6px;
 }
 
+/* === Footer === */
+footer {
+    border-top: 1px solid var(--border);
+    padding: 28px 0;
+    color: var(--text-faint);
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+footer a {
+    color: var(--text-muted);
+    border-bottom: none;
+}
+
+footer a:hover {
+    color: var(--accent-text);
+    border-bottom: none;
+}
+
 /* === Responsive === */
 @media (max-width: 600px) {
     .nav-inner {
-        padding: 12px 16px;
-        flex-wrap: wrap;
+        padding: 14px 18px;
     }
     
     .nav-links {
-        order: 3;
-        width: 100%;
-        justify-content: space-between;
-        margin-top: 8px;
+        gap: 0;
     }
     
     .nav-links a {
-        padding: 6px 8px;
+        padding: 6px 10px;
         font-size: 0.85rem;
     }
     
@@ -348,7 +408,7 @@ footer a {
     }
     
     h1 {
-        font-size: 1.8rem;
+        font-size: 2rem;
     }
     
     .container {

@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>potatameister</title>
-    <meta name="description" content="Solo developer. Privacy-first, open-source Android apps.">
+    <meta name="description" content="Solo developer. I make small Android apps. They don't track you.">
     <link rel="stylesheet" href="/assets/style.css">
     <script src="/assets/script.js" defer></script>
 </head>
 <body>
     <nav>
         <div class="nav-inner">
-            <a href="/" class="nav-brand">potatameister</a>
+            <a href="/" class="nav-brand">potatameister<span class="dot">.</span></a>
             <ul class="nav-links">
-                <li><a href="/apps/">Apps</a></li>
-                <li><a href="/privacy/">Privacy</a></li>
-                <li><a href="/socials/">Socials</a></li>
+                <li><a href="/apps/" class="no-underline">Apps</a></li>
+                <li><a href="/privacy/" class="no-underline">Privacy</a></li>
+                <li><a href="/socials/" class="no-underline">Socials</a></li>
                 <li>
                     <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
                         <span class="moon">&#9790;</span>
@@ -28,15 +28,16 @@
     
     <main>
         <div class="container">
-            <h1>Solo developer. Privacy-first apps.</h1>
-            <p class="lead">I build small, open-source Android apps. No ads. No trackers. No servers.</p>
+            <h1>Hi, I'm potatameister.</h1>
+            <p class="lead">I make small Android apps in my free time. They don't track you, don't show you ads, and don't phone home. Just apps.</p>
+            <p>Everything I make is open source. If you're curious how something works, you can read the code.</p>
             
-            <h2>Featured</h2>
+            <h2>Currently shipping</h2>
             <div class="card-grid">
                 <a href="/apps/#paperknifeplus" class="card">
-                    <span class="tag">Latest</span>
-                    <h3>PaperKnife+</h3>
-                    <p>Privacy-first PDF utility. Merge, split, compress, edit — all on-device, 100% offline.</p>
+                    <h3>PaperKnife+ <span class="tag">v1.1</span></h3>
+                    <p>A PDF utility that does 24 things — merge, split, rotate, protect, sign, watermark. All on your phone, all offline, no internet permission.</p>
+                    <span class="arrow">&rarr;</span>
                 </a>
             </div>
         </div>
@@ -44,7 +45,7 @@
     
     <footer>
         <div class="container">
-            &copy; potatameister. Built with care.
+            Built with care. &lt;3
         </div>
     </footer>
 </body>

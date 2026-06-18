@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apps — potatameister</title>
-    <meta name="description" content="Privacy-first Android apps by potatameister">
+    <meta name="description" content="Android apps by potatameister">
     <link rel="stylesheet" href="/assets/style.css">
     <script src="/assets/script.js" defer></script>
 </head>
 <body>
     <nav>
         <div class="nav-inner">
-            <a href="/" class="nav-brand">potatameister</a>
+            <a href="/" class="nav-brand">potatameister<span class="dot">.</span></a>
             <ul class="nav-links">
-                <li><a href="/apps/">Apps</a></li>
-                <li><a href="/privacy/">Privacy</a></li>
-                <li><a href="/socials/">Socials</a></li>
+                <li><a href="/apps/" class="no-underline">Apps</a></li>
+                <li><a href="/privacy/" class="no-underline">Privacy</a></li>
+                <li><a href="/socials/" class="no-underline">Socials</a></li>
                 <li>
                     <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
                         <span class="moon">&#9790;</span>
@@ -28,23 +28,26 @@
     
     <main>
         <div class="container">
-            <h1>Apps</h1>
-            <p class="lead">Small, focused Android apps. All open-source, all privacy-respecting.</p>
+            <h1>Apps I've made.</h1>
+            <p class="lead">All small. All open source. All respect your privacy.</p>
             
             <div class="card-grid">
                 <a href="https://github.com/potatameister/PaperKnifePlus" id="paperknifeplus" class="card">
-                    <h3>PaperKnife+</h3>
-                    <p>PDF utility for Android. Merge, split, compress, rotate, protect, sign, watermark — 24 tools total. 100% offline, zero permissions beyond file access.</p>
+                    <h3>PaperKnife+ <span class="tag">v1.1</span></h3>
+                    <p>PDF utility for Android. 24 tools — merge, split, compress, rotate, protect, sign, watermark. 100% offline, no internet permission, all on-device.</p>
+                    <span class="arrow">&rarr;</span>
                 </a>
                 
                 <a href="https://github.com/potatameister/PaperKnife" class="card">
                     <h3>PaperKnife</h3>
-                    <p>The original PDF utility. Zero-server architecture. Open-source on GitHub.</p>
+                    <p>The original PDF utility I made. Same idea, different tech. Open source on GitHub.</p>
+                    <span class="arrow">&rarr;</span>
                 </a>
                 
                 <a href="https://github.com/potatameister/MetaPurge" class="card">
                     <h3>MetaPurge</h3>
-                    <p>Strip EXIF and other metadata from photos before sharing. Privacy-respecting, fully local.</p>
+                    <p>Strips EXIF and other metadata from photos before you share them. Because your photos shouldn't leak where they were taken.</p>
+                    <span class="arrow">&rarr;</span>
                 </a>
             </div>
         </div>
@@ -52,7 +55,7 @@
     
     <footer>
         <div class="container">
-            &copy; potatameister. Built with care.
+            Built with care. &lt;3
         </div>
     </footer>
 </body>
