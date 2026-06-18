@@ -1,51 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy — potatameister</title>
-    <meta name="description" content="Privacy policies for potatameister's apps">
-    <link rel="stylesheet" href="/assets/style.css">
-    <script src="/assets/script.js" defer></script>
-</head>
-<body>
-    <nav>
-        <div class="nav-inner">
-            <a href="/" class="nav-brand">potatameister<span class="dot">.</span></a>
-            <ul class="nav-links">
-                <li><a href="/apps/" class="no-underline">Apps</a></li>
-                <li><a href="/privacy/" class="no-underline">Privacy</a></li>
-                <li><a href="/socials/" class="no-underline">Socials</a></li>
-                <li>
-                    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
-                        <span class="moon">&#9790;</span>
-                        <span class="sun">&#9728;</span>
-                    </button>
-                </li>
-            </ul>
-        </div>
-    </nav>
-    
-    <main>
-        <div class="container">
-            <h1>Privacy policies.</h1>
-            <p class="lead">Every app I build has the same philosophy: your data stays on your device. None of these policies are long because there's nothing to disclose.</p>
-            
-            <ul class="simple-list">
-                <li>
-                    <strong><a href="/privacy/paperknifeplus/" class="no-underline">PaperKnife+</a></strong>
-                    <span class="muted">&mdash; PDF utility</span>
-                </li>
-            </ul>
-            
-            <p class="muted" style="margin-top: 32px;">More policies will show up here as more apps get published.</p>
-        </div>
-    </main>
-    
-    <footer>
-        <div class="container">
-            by potatameister
-        </div>
-    </footer>
-</body>
-</html>
+---
+layout: default
+title: Privacy
+description: Privacy policies for potatameister's apps
+---
+
+<h1>Privacy policies.</h1>
+<p class="lead">Every app I build has the same philosophy: your data stays on your device. None of these policies are long because there's nothing to disclose.</p>
+
+<ul class="simple-list">
+    <li>
+        <strong><a href="{{ '/privacy/paperknifeplus/' | relative_url }}" class="no-underline">PaperKnife+</a></strong>
+        <span class="muted">&mdash; PDF utility</span>
+    </li>
+</ul>
+
+<p class="muted" style="margin-top: 32px;">More policies will show up here as more apps get published.</p>

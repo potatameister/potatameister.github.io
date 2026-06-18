@@ -1,0 +1,19 @@
+title: potatameister
+description: Solo developer. Privacy-first, open-source Android apps.
+url: "https://potatameister.github.io"
+baseurl: ""
+permalink: /:path/
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+theme: minima  # not used since we have custom layout, but Jekyll needs it
+plugins: []
+
+# Exclude from build
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - README.md

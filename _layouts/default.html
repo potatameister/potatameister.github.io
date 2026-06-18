@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if page.title %}{{ page.title }} — {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+    <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+    <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+    <script src="{{ '/assets/script.js' | relative_url }}" defer></script>
+</head>
+<body>
+    <nav>
+        <div class="nav-inner">
+            <a href="{{ '/' | relative_url }}" class="nav-brand">potatameister<span class="dot">.</span></a>
+            <ul class="nav-links">
+                <li><a href="{{ '/apps/' | relative_url }}" class="no-underline">Apps</a></li>
+                <li><a href="{{ '/privacy/' | relative_url }}" class="no-underline">Privacy</a></li>
+                <li><a href="{{ '/socials/' | relative_url }}" class="no-underline">Socials</a></li>
+                <li>
+                    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                        <span class="moon">&#9790;</span>
+                        <span class="sun">&#9728;</span>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
+    <main>
+        <div class="container">
+            {{ content }}
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            by potatameister
+        </div>
+    </footer>
+</body>
+</html>

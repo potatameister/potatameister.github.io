@@ -1,52 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>potatameister</title>
-    <meta name="description" content="Solo developer. I make small Android apps. They don't track you.">
-    <link rel="stylesheet" href="/assets/style.css">
-    <script src="/assets/script.js" defer></script>
-</head>
-<body>
-    <nav>
-        <div class="nav-inner">
-            <a href="/" class="nav-brand">potatameister<span class="dot">.</span></a>
-            <ul class="nav-links">
-                <li><a href="/apps/" class="no-underline">Apps</a></li>
-                <li><a href="/privacy/" class="no-underline">Privacy</a></li>
-                <li><a href="/socials/" class="no-underline">Socials</a></li>
-                <li>
-                    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
-                        <span class="moon">&#9790;</span>
-                        <span class="sun">&#9728;</span>
-                    </button>
-                </li>
-            </ul>
-        </div>
-    </nav>
-    
-    <main>
-        <div class="container">
-            <h1>Hi, I'm potatameister.</h1>
-            <p class="lead">I make small Android apps in my free time. They don't track you, don't show you ads, and don't phone home. Just apps.</p>
-            <p>Everything I make is open source. If you're curious how something works, you can read the code.</p>
-            
-            <h2>Currently shipping</h2>
-            <div class="card-grid">
-                <a href="/apps/#paperknifeplus" class="card">
-                    <h3>PaperKnife+ <span class="tag">v1.1</span></h3>
-                    <p>A PDF utility that does 24 things — merge, split, rotate, protect, sign, watermark. All on your phone, all offline, no internet permission.</p>
-                    <span class="arrow">&rarr;</span>
-                </a>
-            </div>
-        </div>
-    </main>
-    
-    <footer>
-        <div class="container">
-            by potatameister
-        </div>
-    </footer>
-</body>
-</html>
+---
+layout: default
+title: ""
+description: Solo developer. Privacy-first, open-source Android apps.
+---
+
+<h1>Hi, I'm potatameister.</h1>
+<p class="lead">I make small Android apps in my free time. They don't track you, don't show you ads, and don't phone home. Just apps.</p>
+<p>Everything I make is open source. If you're curious how something works, you can read the code.</p>
+
+<h2>Currently shipping</h2>
+<div class="card-grid">
+    <a href="{{ '/apps/#paperknifeplus' | relative_url }}" class="card">
+        <h3>PaperKnife+ <span class="tag">v1.1</span></h3>
+        <p>A PDF utility that does 24 things — merge, split, rotate, protect, sign, watermark. All on your phone, all offline, no internet permission.</p>
+        <span class="arrow">&rarr;</span>
+    </a>
+</div>
