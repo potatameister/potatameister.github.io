@@ -1,0 +1,228 @@
+---
+layout: default
+title: Feature Graphic Generator
+description: Tool to generate Play Store feature graphic
+---
+
+<style>
+  .fg-container {
+    margin-top: 24px;
+  }
+  .fg-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+  .fg-tab {
+    padding: 8px 16px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    transition: all 180ms ease;
+  }
+  .fg-tab.active {
+    background: var(--accent-soft);
+    color: var(--accent-text);
+    border-color: var(--accent);
+  }
+  .fg-tab:hover {
+    border-color: var(--border-strong);
+  }
+  .fg-preview {
+    margin: 24px 0;
+    text-align: center;
+  }
+  .fg-preview-frame {
+    display: inline-block;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    max-width: 100%;
+  }
+  .fg-preview-frame img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+  .fg-actions {
+    margin: 24px 0;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .fg-btn {
+    padding: 12px 20px;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 180ms ease;
+  }
+  .fg-btn:hover {
+    background: var(--accent-text);
+  }
+  .fg-btn-secondary {
+    background: var(--bg-elevated);
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+  .fg-btn-secondary:hover {
+    background: var(--bg-card);
+    border-color: var(--border-strong);
+  }
+  .fg-status {
+    margin-top: 16px;
+    font-size: 0.9rem;
+    color: var(--text-faint);
+  }
+  .fg-note {
+    margin-top: 32px;
+    padding: 16px 20px;
+    background: var(--bg-elevated);
+    border-radius: 8px;
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+  .fg-note strong {
+    color: var(--text);
+  }
+</style>
+
+<h1>Feature Graphic Generator</h1>
+<p class="lead">Preview Play Store feature graphic designs. Pick one, download as PNG (1024×500).</p>
+
+<div class="fg-tabs">
+  <button class="fg-tab active" data-design="clean">Design 1: Clean</button>
+  <button class="fg-tab" data-design="bold">Design 2: Bold</button>
+  <button class="fg-tab" data-design="gradient">Design 3: Gradient</button>
+</div>
+
+<div class="fg-preview">
+  <div class="fg-preview-frame">
+    <img id="fg-preview" alt="Feature graphic preview" />
+  </div>
+</div>
+
+<div class="fg-actions">
+  <button class="fg-btn" id="fg-download">Download PNG (1024×500)</button>
+  <button class="fg-btn fg-btn-secondary" id="fg-open">Open full size</button>
+</div>
+
+<div class="fg-status" id="fg-status">Loading designs…</div>
+
+<div class="fg-note">
+  <strong>How this works:</strong> The preview is rendered as SVG in the browser. When you click Download, the SVG is converted to a 1024×500 PNG using HTML canvas. The file saves to your Downloads folder.<br><br>
+  <strong>Play Store requirements:</strong> PNG or JPEG, up to 15 MB, exactly 1024×500 px.
+</div>
+
+<script>
+// Embedded icon as base64 PNG
+const ICON_DATAURI = "data:image/png;base64,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";
+
+// Design definitions as SVG strings
+const designs = {
+  clean: `<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="500" viewBox="0 0 1024 500">
+    <rect width="1024" height="500" fill="#fafafa"/>
+    <image href="${ICON_DATAURI}" x="140" y="125" width="250" height="250"/>
+    <text x="460" y="220" font-family="system-ui, -apple-system, sans-serif" font-size="84" font-weight="700" fill="#0a0a0a" letter-spacing="-2">PaperKnife+</text>
+    <text x="460" y="270" font-family="system-ui, -apple-system, sans-serif" font-size="32" fill="#525252">Privacy-first PDF utility</text>
+    <text x="460" y="315" font-family="system-ui, -apple-system, sans-serif" font-size="32" fill="#525252">100% offline. Zero tracking.</text>
+    <rect x="460" y="335" width="60" height="4" fill="#f59e0b"/>
+  </svg>`,
+
+  bold: `<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="500" viewBox="0 0 1024 500">
+    <rect width="1024" height="500" fill="#0a0a0a"/>
+    <image href="${ICON_DATAURI}" x="140" y="125" width="250" height="250"/>
+    <text x="460" y="220" font-family="system-ui, -apple-system, sans-serif" font-size="84" font-weight="700" fill="#fafafa" letter-spacing="-2">PaperKnife+</text>
+    <text x="460" y="270" font-family="system-ui, -apple-system, sans-serif" font-size="32" fill="#a3a3a3">Privacy-first PDF utility</text>
+    <text x="460" y="315" font-family="system-ui, -apple-system, sans-serif" font-size="32" fill="#f59e0b">100% offline. Zero tracking.</text>
+    <rect x="460" y="335" width="60" height="4" fill="#f59e0b"/>
+  </svg>`,
+
+  gradient: `<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="500" viewBox="0 0 1024 500">
+    <defs>
+      <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#fce7f3"/>
+        <stop offset="100%" stop-color="#fef3c7"/>
+      </linearGradient>
+    </defs>
+    <rect width="1024" height="500" fill="url(#g1)"/>
+    <image href="${ICON_DATAURI}" x="140" y="125" width="250" height="250"/>
+    <text x="460" y="220" font-family="system-ui, -apple-system, sans-serif" font-size="84" font-weight="700" fill="#0a0a0a" letter-spacing="-2">PaperKnife+</text>
+    <text x="460" y="270" font-family="system-ui, -apple-system, sans-serif" font-size="32" fill="#525252">Privacy-first PDF utility</text>
+    <text x="460" y="315" font-family="system-ui, -apple-system, sans-serif" font-size="32" fill="#525252">100% offline. Zero tracking.</text>
+    <rect x="460" y="335" width="60" height="4" fill="#f59e0b"/>
+  </svg>`
+};
+
+let currentDesign = 'clean';
+
+function updatePreview() {
+  const svg = designs[currentDesign];
+  const blob = new Blob([svg], { type: 'image/svg+xml' });
+  const url = URL.createObjectURL(blob);
+  document.getElementById('fg-preview').src = url;
+  document.getElementById('fg-status').textContent = `Showing: Design ${currentDesign === 'clean' ? '1 (Clean)' : currentDesign === 'bold' ? '2 (Bold)' : '3 (Gradient)'}`;
+}
+
+document.querySelectorAll('.fg-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.fg-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    currentDesign = tab.dataset.design;
+    updatePreview();
+  });
+});
+
+document.getElementById('fg-download').addEventListener('click', () => {
+  const svg = designs[currentDesign];
+  const svgBlob = new Blob([svg], { type: 'image/svg+xml' });
+  const url = URL.createObjectURL(svgBlob);
+  
+  const img = new Image();
+  img.onload = () => {
+    const canvas = document.createElement('canvas');
+    canvas.width = 1024;
+    canvas.height = 500;
+    const ctx = canvas.getContext('2d');
+    ctx.drawImage(img, 0, 0, 1024, 500);
+    
+    canvas.toBlob((blob) => {
+      const dlUrl = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = dlUrl;
+      a.download = `paperknife-feature-${currentDesign}.png`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(dlUrl);
+      URL.revokeObjectURL(url);
+      document.getElementById('fg-status').textContent = 'Downloaded! Check your Downloads folder.';
+    }, 'image/png');
+  };
+  img.onerror = () => {
+    document.getElementById('fg-status').textContent = 'Error: Could not generate PNG. Try opening full size instead.';
+    URL.revokeObjectURL(url);
+  };
+  img.src = url;
+});
+
+document.getElementById('fg-open').addEventListener('click', () => {
+  const svg = designs[currentDesign];
+  const blob = new Blob([svg], { type: 'image/svg+xml' });
+  const url = URL.createObjectURL(blob);
+  window.open(url, '_blank');
+});
+
+// Initial render
+updatePreview();
+</script>
