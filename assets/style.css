@@ -311,57 +311,95 @@ p {
 
 /* === Support cards === */
 .support-grid {
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 }
 
 .support-card {
-    --chip: #d6246d;
-    --tint: #fdf2f8;
-    --edge: #fbcfe8;
-    background: var(--tint);
+    --brand: #ea4aaa;
+    --chip: var(--brand);
+    --logo: #ffffff;
+    --tint-a: #fff5fa;
+    --tint-b: #fde8f3;
+    --edge: #f9cfe4;
+    background: linear-gradient(160deg, var(--tint-a), var(--tint-b));
     border-color: var(--edge);
+    border-radius: 18px;
+    padding: 26px 28px 28px;
+    box-shadow: var(--shadow);
 }
 
 .support-card.coffee {
-    --chip: #92400e;
-    --tint: #fffbeb;
-    --edge: #fde68a;
+    --brand: #ffdd00;
+    --chip: #ffdd00;
+    --logo: #221a17;
+    --tint-a: #fffdf2;
+    --tint-b: #fff7d1;
+    --edge: #f4e2a2;
 }
 
 [data-theme="dark"] .support-card {
-    --chip: #ec4899;
-    --tint: #1f0f18;
-    --edge: #3b1a2c;
+    --tint-a: #1d1419;
+    --tint-b: #241821;
+    --edge: #3f2233;
 }
 
 [data-theme="dark"] .support-card.coffee {
-    --chip: #d97706;
-    --tint: #1c1508;
-    --edge: #3d2f0c;
-}
-
-.support-card:hover {
-    border-color: var(--chip);
+    --tint-a: #1d1809;
+    --tint-b: #241e0a;
+    --edge: #4c4014;
 }
 
 .support-card .icon {
     display: grid;
     place-items: center;
-    width: 46px;
-    height: 46px;
-    border-radius: 11px;
-    margin-bottom: 16px;
+    width: 56px;
+    height: 56px;
+    border-radius: 15px;
+    margin-bottom: 18px;
     background: var(--chip);
-    color: #fff;
+    color: var(--logo);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.22);
 }
 
 .support-card .icon svg {
-    width: 24px;
-    height: 24px;
+    display: block;
+    width: 30px;
+    height: 30px;
+}
+
+.support-card h3 {
+    padding-right: 44px;
+}
+
+.support-card p {
+    padding-right: 44px;
+}
+
+.support-card .arrow {
+    opacity: 1;
+    top: 39px;
+    right: 20px;
+    display: grid;
+    place-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--chip);
+    color: var(--logo);
+    font-size: 0.8rem;
+    transform: none;
+    transition: transform var(--transition);
+}
+
+.support-card:hover {
+    border-color: var(--brand);
+    transform: translateY(-3px);
 }
 
 .support-card:hover .arrow {
-    color: var(--chip);
+    opacity: 1;
+    transform: translateX(3px);
+    color: var(--logo);
 }
 
 /* === Lists === */
