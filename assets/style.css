@@ -417,17 +417,30 @@ footer a:hover {
 
 /* === Responsive === */
 @media (max-width: 600px) {
+    /* Two rows on small screens: brand above, links below.
+       Keeps every link visible without a hamburger menu. */
     .nav-inner {
-        padding: 14px 20px;
+        flex-wrap: wrap;
+        padding: 12px 20px 10px;
+        gap: 8px 16px;
+    }
+    
+    .nav-brand {
+        font-size: 1rem;
     }
     
     .nav-links {
-        gap: 0;
+        gap: 2px;
+        width: 100%;
     }
     
     .nav-links a {
-        padding: 6px 10px;
-        font-size: 0.85rem;
+        padding: 6px 8px;
+        font-size: 0.82rem;
+    }
+    
+    .theme-toggle {
+        margin-left: auto;
     }
     
     main {
