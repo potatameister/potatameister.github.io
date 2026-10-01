@@ -309,6 +309,61 @@ p {
     color: var(--accent);
 }
 
+/* === Support cards === */
+.support-grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.support-card {
+    --chip: #d6246d;
+    --tint: #fdf2f8;
+    --edge: #fbcfe8;
+    background: var(--tint);
+    border-color: var(--edge);
+}
+
+.support-card.coffee {
+    --chip: #92400e;
+    --tint: #fffbeb;
+    --edge: #fde68a;
+}
+
+[data-theme="dark"] .support-card {
+    --chip: #ec4899;
+    --tint: #1f0f18;
+    --edge: #3b1a2c;
+}
+
+[data-theme="dark"] .support-card.coffee {
+    --chip: #d97706;
+    --tint: #1c1508;
+    --edge: #3d2f0c;
+}
+
+.support-card:hover {
+    border-color: var(--chip);
+}
+
+.support-card .icon {
+    display: grid;
+    place-items: center;
+    width: 46px;
+    height: 46px;
+    border-radius: 11px;
+    margin-bottom: 16px;
+    background: var(--chip);
+    color: #fff;
+}
+
+.support-card .icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.support-card:hover .arrow {
+    color: var(--chip);
+}
+
 /* === Lists === */
 .simple-list {
     list-style: none;
