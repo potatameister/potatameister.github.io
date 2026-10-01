@@ -334,6 +334,31 @@ p {
     display: inline-block;
 }
 
+/* Rows that link somewhere — flat text, no button chrome */
+.simple-list .link-row {
+    position: relative;
+}
+
+.simple-list .link-row a::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+}
+
+.simple-list .link-row .arrow {
+    margin-left: auto;
+    color: var(--text-faint);
+    opacity: 0.45;
+    transform: translateX(-4px);
+    transition: all var(--transition);
+}
+
+.simple-list .link-row:hover .arrow {
+    opacity: 1;
+    transform: translateX(0);
+    color: var(--accent);
+}
+
 /* === Privacy content === */
 .privacy-content {
     max-width: 680px;
