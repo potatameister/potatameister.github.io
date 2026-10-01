@@ -315,6 +315,8 @@ p {
 }
 
 .support-card {
+    /* Brand hexes are the official logo fills: GitHub Sponsors #EA4AAA,
+       Buy Me a Coffee #FFDD00. Both need a contrasting logo colour. */
     --brand: #ea4aaa;
     --chip: var(--brand);
     --logo: #ffffff;
@@ -329,9 +331,9 @@ p {
 }
 
 .support-card.coffee {
-    --brand: #d9a400;
-    --chip: #241c14;
-    --logo: #ffdd00;
+    --brand: #ffdd00;
+    --chip: #ffdd00;
+    --logo: #221a17;
     --tint-a: #fcfbf8;
     --tint-b: #f8f4ea;
     --edge: #e7dcc4;
