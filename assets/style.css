@@ -311,12 +311,13 @@ p {
 
 /* === Support cards === */
 .support-grid {
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
 
 .support-card {
     /* Brand hexes are the official logo fills: GitHub Sponsors #EA4AAA,
-       Buy Me a Coffee #FFDD00. Both need a contrasting logo colour. */
+       Buy Me a Coffee #FFDD00, Ko-fi #FF6433. Each needs a contrasting
+       logo colour. */
     --brand: #ea4aaa;
     --chip: var(--brand);
     --logo: #ffffff;
@@ -339,6 +340,15 @@ p {
     --edge: #e7dcc4;
 }
 
+.support-card.kofi {
+    --brand: #ff6433;
+    --chip: var(--brand);
+    --logo: #ffffff;
+    --tint-a: #fdfaf8;
+    --tint-b: #faf1ec;
+    --edge: #eedfd4;
+}
+
 [data-theme="dark"] .support-card {
     --tint-a: #151113;
     --tint-b: #191215;
@@ -349,6 +359,12 @@ p {
     --tint-a: #131211;
     --tint-b: #171512;
     --edge: #2c2a22;
+}
+
+[data-theme="dark"] .support-card.kofi {
+    --tint-a: #141110;
+    --tint-b: #18120f;
+    --edge: #2f2621;
 }
 
 .support-card .icon {
@@ -370,12 +386,10 @@ p {
 }
 
 .support-card h3 {
-    padding-right: 38px;
     margin-bottom: 4px;
 }
 
 .support-card p {
-    padding-right: 38px;
     font-size: 0.9rem;
     line-height: 1.5;
 }
