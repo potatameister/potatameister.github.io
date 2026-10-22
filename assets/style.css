@@ -322,8 +322,8 @@ p {
     color: var(--accent);
 }
 
-/* === Support list === */
-.support-list {
+/* === Icon link list === */
+.icon-list {
     margin-top: 28px;
     border: 1px solid var(--border);
     border-radius: 14px;
@@ -331,8 +331,8 @@ p {
     overflow: hidden;
 }
 
-.support-row {
-    /* GitHub is the default palette; other rows override --brand. */
+.icon-row {
+    /* Monochrome default (GitHub, X); other rows override --brand. */
     --brand: #181717;
     --brand-soft: #f0f0f0;
     display: flex;
@@ -344,56 +344,62 @@ p {
     transition: background var(--transition);
 }
 
-.support-row:last-child {
+.icon-row:last-child {
     border-bottom: none;
 }
 
-.support-row:hover {
+.icon-row:hover {
     background: var(--bg-elevated);
     border-bottom-color: var(--border);
 }
 
-.support-row:focus-visible {
+.icon-row:focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: -2px;
 }
 
-.support-row.liberapay {
+.icon-row.email {
+    --brand: var(--accent-text);
+    --brand-soft: var(--accent-soft);
+}
+
+.icon-row.liberapay {
     --brand: #1a171b;
     --brand-soft: #fdf3c2;
 }
 
-.support-row.coffee {
+.icon-row.coffee {
     --brand: #221a17;
     --brand-soft: #fff4b8;
 }
 
-.support-row.kofi {
+.icon-row.kofi {
     --brand: #ff6433;
     --brand-soft: #ffede6;
 }
 
-[data-theme="dark"] .support-row.github {
+[data-theme="dark"] .icon-row.github,
+[data-theme="dark"] .icon-row.x {
     --brand: #f0f0f0;
     --brand-soft: #262626;
 }
 
-[data-theme="dark"] .support-row.liberapay {
+[data-theme="dark"] .icon-row.liberapay {
     --brand: #f6c915;
     --brand-soft: #2a2510;
 }
 
-[data-theme="dark"] .support-row.coffee {
+[data-theme="dark"] .icon-row.coffee {
     --brand: #ffdd00;
     --brand-soft: #2a260f;
 }
 
-[data-theme="dark"] .support-row.kofi {
+[data-theme="dark"] .icon-row.kofi {
     --brand: #ff6433;
     --brand-soft: #2c1a13;
 }
 
-.support-logo {
+.icon-tile {
     flex: none;
     display: grid;
     place-items: center;
@@ -404,20 +410,20 @@ p {
     color: var(--brand);
 }
 
-.support-logo svg {
+.icon-tile svg {
     display: block;
     width: 22px;
     height: 22px;
 }
 
-.support-copy {
+.icon-copy {
     display: flex;
     flex-direction: column;
     gap: 2px;
     min-width: 0;
 }
 
-.support-name {
+.icon-name {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -428,7 +434,7 @@ p {
     transition: color var(--transition);
 }
 
-.support-kind {
+.icon-tag {
     font-size: 0.66rem;
     font-weight: 600;
     letter-spacing: 0.07em;
@@ -436,13 +442,13 @@ p {
     color: var(--text-faint);
 }
 
-.support-note {
+.icon-note {
     font-size: 0.88rem;
     line-height: 1.45;
     color: var(--text-muted);
 }
 
-.support-arrow {
+.icon-arrow {
     margin-left: auto;
     color: var(--text-faint);
     opacity: 0.45;
@@ -450,17 +456,17 @@ p {
     transition: all var(--transition);
 }
 
-.support-row:hover .support-name {
+.icon-row:hover .icon-name {
     color: var(--accent-text);
 }
 
-.support-row:hover .support-arrow {
+.icon-row:hover .icon-arrow {
     opacity: 1;
     transform: translateX(0);
     color: var(--accent-text);
 }
 
-.support-footnote {
+.icon-footnote {
     margin-top: 28px;
     max-width: 560px;
     font-size: 0.9rem;
@@ -600,27 +606,27 @@ footer a:hover {
         padding: 0 20px;
     }
 
-    .support-row {
+    .icon-row {
         gap: 12px;
         padding: 14px 16px;
     }
 
-    .support-logo {
+    .icon-tile {
         width: 36px;
         height: 36px;
         border-radius: 10px;
     }
 
-    .support-logo svg {
+    .icon-tile svg {
         width: 20px;
         height: 20px;
     }
 
-    .support-name {
+    .icon-name {
         font-size: 0.94rem;
     }
 
-    .support-note {
+    .icon-note {
         font-size: 0.84rem;
     }
 
