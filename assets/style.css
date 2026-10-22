@@ -44,6 +44,7 @@
 
 html {
     scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -77,6 +78,17 @@ a:hover {
 
 .no-underline:hover {
     border-bottom: none;
+}
+
+/* Keep focus rings for keyboard users, not taps or clicks. */
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible) {
+    outline: none;
+}
+
+:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
 }
 
 code {
