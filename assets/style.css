@@ -311,24 +311,32 @@ p {
 
 /* === Support cards === */
 .support-grid {
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .support-card {
-    /* Brand hexes are the official logo fills: GitHub Sponsors #EA4AAA,
-       Buy Me a Coffee #FFDD00, Ko-fi #FF6433. Each needs a contrasting
-       logo colour. */
-    --brand: #ea4aaa;
+    /* Default is the GitHub palette (#181717 / #ffffff). Each card overrides
+       --brand, --logo, and its tints with official brand colours. */
+    --brand: #181717;
     --chip: var(--brand);
     --logo: #ffffff;
-    --tint-a: #fcfafb;
-    --tint-b: #f9f1f5;
-    --edge: #f0dde6;
+    --tint-a: #fcfcfc;
+    --tint-b: #f4f4f4;
+    --edge: #e3e3e3;
     background: linear-gradient(160deg, var(--tint-a), var(--tint-b));
     border-color: var(--edge);
     border-radius: 18px;
     padding: 18px 22px 20px;
     box-shadow: var(--shadow);
+}
+
+.support-card.liberapay {
+    --brand: #f6c915;
+    --chip: #f6c915;
+    --logo: #1a171b;
+    --tint-a: #fffdf4;
+    --tint-b: #fdf6d8;
+    --edge: #efe3ae;
 }
 
 .support-card.coffee {
@@ -350,9 +358,21 @@ p {
 }
 
 [data-theme="dark"] .support-card {
-    --tint-a: #151113;
-    --tint-b: #191215;
-    --edge: #2b2026;
+    --tint-a: #121212;
+    --tint-b: #161616;
+    --edge: #2b2b2b;
+}
+
+/* Invert the GitHub chip in dark mode so the mark stays legible. */
+[data-theme="dark"] .support-card.github {
+    --brand: #f0f0f0;
+    --logo: #181717;
+}
+
+[data-theme="dark"] .support-card.liberapay {
+    --tint-a: #171510;
+    --tint-b: #1a170e;
+    --edge: #3a3319;
 }
 
 [data-theme="dark"] .support-card.coffee {
@@ -553,7 +573,11 @@ footer a:hover {
     .container {
         padding: 0 20px;
     }
-    
+
+    .support-grid {
+        grid-template-columns: 1fr;
+    }
+
     .card {
         padding: 18px 20px;
     }
