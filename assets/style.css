@@ -478,6 +478,26 @@ p {
     color: var(--accent-text);
 }
 
+.icon-row.is-paused {
+    opacity: 0.55;
+    filter: grayscale(1);
+    cursor: default;
+}
+
+.icon-row.is-paused:hover {
+    background: transparent;
+    border-bottom-color: var(--border);
+}
+
+.icon-row.is-paused .icon-name,
+.icon-row.is-paused:hover .icon-name {
+    color: var(--text-muted);
+}
+
+.icon-row.is-paused .icon-arrow {
+    display: none;
+}
+
 .icon-footnote {
     margin-top: 28px;
     max-width: 560px;
