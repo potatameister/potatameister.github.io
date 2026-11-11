@@ -29,4 +29,34 @@ document.addEventListener('DOMContentLoaded', function() {
             localStorage.setItem('theme', next);
         });
     }
+
+    // Copy crypto donation addresses
+    document.querySelectorAll('.crypto-copy').forEach(function(button) {
+        button.addEventListener('click', async function() {
+            const target = document.getElementById(button.dataset.copy);
+            if (!target) return;
+            const text = target.textContent.trim();
+            const original = button.textContent;
+            try {
+                await navigator.clipboard.writeText(text);
+                button.textContent = 'Copied';
+                button.dataset.copied = 'true';
+                setTimeout(function() {
+                    button.textContent = original;
+                    delete button.dataset.copied;
+                }, 1600);
+            } catch (error) {
+                // Fallback: select the address so it can be copied manually.
+                const range = document.createRange();
+                range.selectNodeContents(target);
+                const selection = window.getSelection();
+                selection.removeAllRanges();
+                selection.addRange(range);
+                button.textContent = 'Select & copy';
+                setTimeout(function() {
+                    button.textContent = original;
+                }, 1800);
+            }
+        });
+    });
 });

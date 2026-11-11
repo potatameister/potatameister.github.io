@@ -61,4 +61,53 @@ description: Ways to support potatameister's open-source apps
     </div>
 </div>
 
+<details class="crypto-details">
+    <summary class="crypto-summary">
+        <span class="icon-tile crypto-tile">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2.5" y="6" width="19" height="13" rx="3"/>
+                <path d="M2.5 10h19"/>
+                <circle cx="17" cy="14.5" r="1.1" fill="currentColor" stroke="none"/>
+            </svg>
+        </span>
+        <span class="icon-copy">
+            <span class="icon-name">Crypto <span class="icon-tag">Optional</span></span>
+            <span class="icon-note">BTC and USDT (BNB Smart Chain). Self-custody.</span>
+        </span>
+        <span class="crypto-chevron" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 9l6 6 6-6"/>
+            </svg>
+        </span>
+    </summary>
+    <div class="crypto-body">
+        <p class="crypto-intro">Prefer crypto? These are self-custody wallet addresses. Send only on the network shown &mdash; a wrong network can lose the funds. Receiving is free; network fees are paid by the sender.</p>
+        <div class="crypto-grid">
+            <div class="crypto-card">
+                <div class="crypto-head">
+                    <span class="crypto-sym">BTC</span>
+                    <span class="crypto-network">Bitcoin network</span>
+                </div>
+                <img class="crypto-qr" src="{{ '/assets/qr-btc.svg' | relative_url }}" alt="QR code for the BTC donation address" width="220" height="220" loading="lazy">
+                <code class="crypto-address" id="btc-address">bc1qpamdenvjmzmjumz24s3hymcn77xu8gy9ur04ll</code>
+                <div class="crypto-actions">
+                    <button type="button" class="crypto-copy" data-copy="btc-address">Copy address</button>
+                </div>
+            </div>
+            <div class="crypto-card">
+                <div class="crypto-head">
+                    <span class="crypto-sym">USDT</span>
+                    <span class="crypto-network">BNB Smart Chain (BEP20)</span>
+                </div>
+                <img class="crypto-qr" src="{{ '/assets/qr-usdt-bep20.svg' | relative_url }}" alt="QR code for the USDT BEP20 donation address" width="220" height="220" loading="lazy">
+                <code class="crypto-address" id="usdt-address">0xd90EcC7D0D35C2a0B5d68226c7179E29121f6492</code>
+                <div class="crypto-actions">
+                    <button type="button" class="crypto-copy" data-copy="usdt-address">Copy address</button>
+                </div>
+            </div>
+        </div>
+        <p class="crypto-verified">Addresses last verified: 11 Nov 2026. If anything goes wrong, contact me with the transaction hash.</p>
+    </div>
+</details>
+
 <p class="icon-footnote">Every bit goes toward testing on real devices and keeping both apps maintained. They stay free, open source, and ad-free either way.</p>
